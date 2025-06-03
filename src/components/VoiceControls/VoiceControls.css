@@ -1,0 +1,343 @@
+.voice-controls {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.voice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #2d2d2d;
+  border-bottom: 1px solid #404040;
+  flex-shrink: 0;
+}
+
+.voice-header h3 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.voice-status {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+
+.status-connected {
+  color: #10b981;
+}
+
+.status-disconnected {
+  color: #6b7280;
+}
+
+.status-connecting {
+  color: #f59e0b;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.voice-error {
+  background: linear-gradient(145deg, #fca5a5, #f87171);
+  color: #7f1d1d;
+  padding: 8px 12px;
+  font-size: 11px;
+  border-left: 4px solid #dc2626;
+  margin: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.voice-error p {
+  margin: 0;
+  flex: 1;
+}
+
+.error-dismiss {
+  background: none;
+  border: none;
+  color: #7f1d1d;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.error-dismiss:hover {
+  background: rgba(127, 29, 29, 0.2);
+}
+
+.permission-warning {
+  background: linear-gradient(145deg, #fbbf24, #f59e0b);
+  color: #451a03;
+  padding: 8px 12px;
+  font-size: 11px;
+  border-left: 4px solid #d97706;
+  margin: 8px;
+  border-radius: 4px;
+  animation: slideInDown 0.3s ease-out;
+}
+
+.permission-warning p {
+  margin: 0;
+}
+
+.voice-controls-section {
+  padding: 12px;
+  flex-shrink: 0;
+}
+
+.connect-button {
+  width: 100%;
+  background: linear-gradient(145deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.connect-button:hover:not(:disabled) {
+  background: linear-gradient(145deg, #5a6fd8, #6c5ce7);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.connect-button:disabled {
+  background: #4a5568;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+.voice-active-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.mute-button {
+  flex: 1;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mute-button.unmuted {
+  background: linear-gradient(145deg, #10b981, #059669);
+  color: white;
+}
+
+.mute-button.unmuted:hover {
+  background: linear-gradient(145deg, #059669, #047857);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.mute-button.muted {
+  background: linear-gradient(145deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.mute-button.muted:hover {
+  background: linear-gradient(145deg, #dc2626, #b91c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.disconnect-button {
+  background: linear-gradient(145deg, #6b7280, #4b5563);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.disconnect-button:hover {
+  background: linear-gradient(145deg, #4b5563, #374151);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
+}
+
+.voice-participants {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.voice-participants h4 {
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.participants-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.participant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: rgba(45, 45, 45, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.participant:hover {
+  background: rgba(45, 45, 45, 0.8);
+  border-color: rgba(102, 126, 234, 0.4);
+  transform: translateY(-1px);
+}
+
+.participant.self {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.participant.self:hover {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+.participant-name {
+  color: #e2e8f0;
+  font-size: 11px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.participant.self .participant-name {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.participant-status {
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.participant-status.speaking {
+  color: #10b981;
+  animation: speak 2s infinite;
+}
+
+.participant-status.muted {
+  color: #ef4444;
+}
+
+@keyframes speak {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.no-participants {
+  padding: 12px;
+  text-align: center;
+}
+
+.no-participants p {
+  color: #a0aec0;
+  font-size: 11px;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Custom scrollbar for participants list */
+.voice-participants::-webkit-scrollbar {
+  width: 6px;
+}
+
+.voice-participants::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.voice-participants::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.3);
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.voice-participants::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .voice-controls-section {
+    padding: 8px;
+  }
+  
+  .voice-active-controls {
+    flex-direction: column;
+  }
+  
+  .mute-button, .disconnect-button {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  
+  .participant {
+    padding: 4px 6px;
+  }
+  
+  .participant-name {
+    font-size: 10px;
+  }
+  
+  .participant-status {
+    font-size: 12px;
+  }
+} 
